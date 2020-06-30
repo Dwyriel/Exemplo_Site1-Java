@@ -1,0 +1,17 @@
+create database IF NOT EXISTS cred_events;
+use cred_events;
+CREATE TABLE IF NOT EXISTS evento (
+    id INT PRIMARY KEY UNIQUE AUTO_INCREMENT,
+    nome VARCHAR(150),
+    event_date DATE,
+    part_max INT
+);
+CREATE TABLE IF NOT EXISTS participante (
+    id INT PRIMARY KEY UNIQUE AUTO_INCREMENT,
+    nome VARCHAR(150),
+    cpf VARCHAR(20),
+    email VARCHAR(150),
+    event_id INT ,
+    FOREIGN KEY (event_id)
+        REFERENCES evento (id)
+);
